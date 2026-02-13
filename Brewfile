@@ -48,6 +48,7 @@ brew "overmind"          # Procfile-based process manager (tmux-based)
 # Development Libraries
 brew "libpq"             # PostgreSQL C client library
 brew "libsodium"         # Crypto library (used by Rails, etc.)
+brew "libyaml"           # YAML parser (required by Ruby)
 brew "vips"              # Fast image processing
 brew "glib"              # Core C library (dependency for many tools)
 
