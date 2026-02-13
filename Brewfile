@@ -38,6 +38,7 @@ brew "wget"
 brew "htop"
 brew "tree"
 brew "tldr"              # Simplified man pages
+brew "mas"               # Mac App Store CLI
 
 # ============================================================================
 # 1Password
@@ -80,6 +81,4 @@ cask "font-meslo-lg-nerd-font"
 # ============================================================================
 # Mac App Store
 # ============================================================================
-# Requires: brew install mas
-# mas "1Password for Safari", id: 1569813296
-# mas "Fantastical Calendar", id: 975937182
+mas "Kagi for Safari", id: 1622835804
