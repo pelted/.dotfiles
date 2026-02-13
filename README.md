@@ -1,2 +1,82 @@
 # .dotfiles
-Modern dotfiles with chezmoi - agent-focused workflow
+
+Modern, agent-focused dotfiles managed with [chezmoi](https://chezmoi.io/).
+
+## What's Included
+
+- **Shell**: Minimal zsh config (no oh-my-zsh) with fast startup
+- **Prompt**: [Starship](https://starship.rs/) with Gruvbox Rainbow theme
+- **Tools**: mise, zoxide, fzf, bat, ripgrep, and more
+- **Secrets**: 1Password integration for sensitive config values
+- **Agents**: Configurations for AI coding assistants
+
+## Quick Start
+
+### New Machine Setup
+
+```bash
+# Install chezmoi and apply dotfiles
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply pelted/.dotfiles
+
+# Or if chezmoi is already installed
+chezmoi init pelted/.dotfiles
+chezmoi apply
+```
+
+### Updating
+
+```bash
+chezmoi update
+```
+
+### Adding/Changing Files
+
+```bash
+# After editing a dotfile directly
+chezmoi re-add
+
+# Edit via chezmoi (opens in $EDITOR)
+chezmoi edit ~/.zshrc
+
+# See what would change
+chezmoi diff
+```
+
+## Structure
+
+```
+├── Brewfile                 # Homebrew packages
+├── dot_zshrc                # Main shell config
+├── dot_zprofile             # Login shell
+├── dot_zshenv               # Environment variables
+├── dot_gitconfig.tmpl       # Git config (1Password template)
+├── dot_gitignore_global     # Global gitignore
+├── dot_config/
+│   ├── starship.toml        # Prompt configuration
+│   └── mise/
+│       └── config.toml      # Version manager config
+├── private_dot_config/
+│   └── agent-instructions.md # Global AI assistant preferences
+├── run_once_after_setup.sh  # One-time setup script
+└── run_onchange_brewfile.sh.tmpl # Auto-run brew bundle
+```
+
+## Key Features
+
+### Fast Shell Startup
+No oh-my-zsh. Individual tools sourced directly for ~100ms startup.
+
+### 1Password Integration
+Secrets (git email, API keys) pulled from 1Password at apply time:
+```
+{{ onepasswordRead "op://Private/item/field" }}
+```
+
+### Agent-Ready
+Global agent instructions at `~/.config/agent-instructions.md` for consistent AI assistant behavior.
+
+## Requirements
+
+- macOS
+- [Homebrew](https://brew.sh/)
+- [1Password](https://1password.com/) (for templated secrets)

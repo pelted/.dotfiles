@@ -1,0 +1,48 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# IDE / Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# Environment
+.env
+.env.local
+.envrc
+
+# Logs
+*.log
+logs/
+
+# Dependencies
+node_modules/
+vendor/bundle/
+
+# Build outputs
+dist/
+build/
+tmp/
+*.tmp
+
+# Ruby
+.byebug_history
+.ruby-version
+.ruby-gemset
+
+# Agent files (per-project, don't commit)
+AGENTS.md
+.cursorrules
+CLAUDE.md
+
+# 1Password
+.op/

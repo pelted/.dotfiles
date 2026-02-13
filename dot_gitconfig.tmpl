@@ -1,0 +1,49 @@
+[user]
+	name = {{ onepasswordRead "op://Private/Me/Internet Details/display name" }}
+	email = {{ onepasswordRead "op://Private/Me/Internet Details/agilebits email" }}
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG...
+
+[color]
+	ui = true
+
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = cursor --wait
+	pager = less -FRX
+
+[init]
+	defaultBranch = main
+
+[push]
+	default = current
+	autoSetupRemote = true
+
+[pull]
+	rebase = true
+
+[fetch]
+	prune = true
+
+[diff]
+	algorithm = histogram
+
+[merge]
+	conflictstyle = zdiff3
+
+[rerere]
+	enabled = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[commit]
+	gpgsign = true
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign

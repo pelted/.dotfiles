@@ -1,0 +1,14 @@
+# Environment variables - loaded for all shell types (interactive, non-interactive, login, non-login)
+# Keep this minimal - heavy lifting should be in .zshrc
+
+# XDG Base Directory (standardized config locations)
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+# Homebrew
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_ENV_HINTS=1
+
+# 1Password
+export OP_ACCOUNT=my.1password.com

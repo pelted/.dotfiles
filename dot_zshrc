@@ -1,0 +1,142 @@
+# ============================================================================
+# Modern ZSH Config - No oh-my-zsh, fast startup
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# Environment
+# ----------------------------------------------------------------------------
+export LANG=en_US.UTF-8
+export EDITOR="cursor"
+export VISUAL="$EDITOR"
+
+# History configuration
+HISTFILE=~/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+setopt HIST_IGNORE_ALL_DUPS  # No duplicates
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt INC_APPEND_HISTORY    # Add commands immediately
+setopt SHARE_HISTORY         # Share history between sessions
+
+# ----------------------------------------------------------------------------
+# 1Password SSH Agent
+# ----------------------------------------------------------------------------
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
+# ----------------------------------------------------------------------------
+# Tool Initialization
+# ----------------------------------------------------------------------------
+
+# Homebrew (must be early for paths)
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# mise (version manager for Ruby, Node, etc.)
+eval "$(mise activate zsh)"
+
+# zoxide (smart cd)
+eval "$(zoxide init zsh)"
+
+# fzf (fuzzy finder)
+source <(fzf --zsh)
+
+# Starship prompt
+eval "$(starship init zsh)"
+
+# direnv (per-directory environment)
+eval "$(direnv hook zsh)"
+
+# ----------------------------------------------------------------------------
+# Completions
+# ----------------------------------------------------------------------------
+autoload -Uz compinit
+compinit
+
+# Case-insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+# ----------------------------------------------------------------------------
+# Plugins (standalone, fast)
+# ----------------------------------------------------------------------------
+# zsh-autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting (must be last)
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# ----------------------------------------------------------------------------
+# Key Bindings
+# ----------------------------------------------------------------------------
+bindkey "^[[1;3C" forward-word      # Alt+Right
+bindkey "^[[1;3D" backward-word     # Alt+Left
+bindkey "^[^[[C" forward-word       # Alt+Right (alternate)
+bindkey "^[^[[D" backward-word      # Alt+Left (alternate)
+
+# ----------------------------------------------------------------------------
+# Aliases - General
+# ----------------------------------------------------------------------------
+alias reload="exec zsh"
+alias ll="ls -lah"
+alias la="ls -la"
+alias l="ls -la"
+
+alias ping="ping -c 5"
+alias du="du -h -c"
+alias df="df -h"
+
+# Better defaults
+alias cat="bat --paging=never"
+alias grep="grep --color=auto"
+
+# ----------------------------------------------------------------------------
+# Aliases - Ruby/Rails (the ones you actually use)
+# ----------------------------------------------------------------------------
+alias be="bundle exec"
+alias bi="bundle install"
+alias rc="bin/rails console"
+alias rs="bin/rails server"
+alias rdb="bin/rails db:migrate"
+alias rdbr="bin/rails db:rollback"
+alias rr="bin/rails routes"
+alias rt="bin/rails test"
+
+# ----------------------------------------------------------------------------
+# Aliases - Git (common ones, not 100+ like oh-my-zsh)
+# ----------------------------------------------------------------------------
+alias gs="git status"
+alias gd="git diff"
+alias gco="git checkout"
+alias gcb="git checkout -b"
+alias gp="git push"
+alias gl="git pull"
+alias glog="git log --oneline --graph --decorate -20"
+
+# ----------------------------------------------------------------------------
+# Aliases - Tools
+# ----------------------------------------------------------------------------
+alias cz="chezmoi"
+alias czcd="chezmoi cd"
+alias czadd="chezmoi re-add"
+alias czapply="chezmoi apply"
+alias czupdate="chezmoi update"
+
+alias z="zoxide"
+
+# ----------------------------------------------------------------------------
+# Functions
+# ----------------------------------------------------------------------------
+
+# Kill processes matching a pattern
+killit() {
+  ps aux | grep -v "grep" | grep "$@" | awk '{print $2}' | xargs sudo kill
+}
+
+# Create directory and cd into it
+mkcd() {
+  mkdir -p "$1" && cd "$1"
+}
+
+# ----------------------------------------------------------------------------
+# 1Password CLI plugins (if configured)
+# ----------------------------------------------------------------------------
+[[ -f ~/.config/op/plugins.sh ]] && source ~/.config/op/plugins.sh

@@ -1,0 +1,23 @@
+# mise global configuration
+# https://mise.jdx.dev/configuration.html
+
+[settings]
+# Automatically install tools when entering a directory with .mise.toml
+auto_install = true
+
+# Trust all .mise.toml files (set to false for more security)
+# trusted_config_paths = ["~/Code"]
+
+# Experimental features
+experimental = false
+
+# Legacy version file support (.ruby-version, .node-version, etc.)
+legacy_version_file = true
+
+# Disable usage tracking
+disable_tools = []
+
+[tools]
+# Global tool versions - override per-project with .mise.toml
+# ruby = "3.3"
+# node = "lts"
