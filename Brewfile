@@ -97,7 +97,7 @@ cask "suspicious-package" # macOS .pkg inspector
 cask "font-jetbrains-mono-nerd-font"
 cask "font-fira-code-nerd-font"
 cask "font-meslo-lg-nerd-font"
-cask "font-monaspace-nerd-font"
+cask "font-monaspice-nerd-font"
 cask "font-source-code-pro-for-powerline"
 
 # ============================================================================
