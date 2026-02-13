@@ -1,10 +1,20 @@
 [user]
-        name = {{ onepasswordRead "op://Private/Me/Internet Details/display name" }}
-        email = {{ onepasswordRead "op://Private/Me/Internet Details/agilebits email" }}
+        name = {{ onepasswordRead "op://Private/Me/Internet Details/username" }}
+        email = {{ onepasswordRead "op://Private/Me/personal email" }}
         signingkey = {{ onepasswordRead "op://Private/Github - Personal/public key" }}
 
 [color]
-	ui = true
+        ui = true
+
+# Work overrides (any of these directories use work email)
+[includeIf "gitdir:~/Documents/Code/Kolide.nosync/"]
+        path = ~/.gitconfig-work
+
+[includeIf "gitdir:~/Documents/Code/Work/"]
+        path = ~/.gitconfig-work
+
+[includeIf "gitdir:~/Documents/Code/Work.nosync/"]
+        path = ~/.gitconfig-work
 
 [core]
         excludesfile = ~/.gitignore_global
