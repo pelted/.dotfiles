@@ -1,0 +1,6 @@
+[onepassword]
+  # Use 1Password CLI integration (requires 1Password app running)
+  command = "op"
+  
+  # Cache credentials to avoid repeated prompts
+  cache = true

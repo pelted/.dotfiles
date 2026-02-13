@@ -76,9 +76,9 @@ bindkey "^[^[[D" backward-word      # Alt+Left (alternate)
 # Aliases - General
 # ----------------------------------------------------------------------------
 alias reload="exec zsh"
-alias ll="ls -lah"
-alias la="ls -la"
-alias l="ls -la"
+alias ll="eza -la --group-directories-first --icons"
+alias la="eza -la --group-directories-first"
+alias l="eza -la"
 
 alias ping="ping -c 5"
 alias du="du -h -c"

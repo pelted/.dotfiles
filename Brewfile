@@ -48,8 +48,7 @@ cask "1password-cli"
 # ============================================================================
 # Agent / AI Tools
 # ============================================================================
-# Note: Install codex manually with: brew install codex
-# (or from OpenAI: npm install -g @openai/codex)
+cask "codex"             # AI coding assistant
 
 # ============================================================================
 # Development Apps
@@ -57,13 +56,11 @@ cask "1password-cli"
 cask "cursor"            # AI-powered editor
 cask "warp"              # AI-powered terminal
 cask "docker"            # Containers
-cask "tower"             # Git GUI (optional)
 
 # ============================================================================
 # Browsers
 # ============================================================================
 cask "google-chrome"
-cask "firefox"
 cask "orion"             # WebKit browser
 
 # ============================================================================
