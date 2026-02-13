@@ -2,9 +2,7 @@
 # Brewfile - Modern Agent-Focused Development Environment
 # ============================================================================
 
-# Taps
-tap "homebrew/bundle"
-tap "homebrew/services"
+# Taps (note: homebrew/bundle and homebrew/services are now built-in)
 
 # ============================================================================
 # Core CLI Tools
@@ -50,7 +48,8 @@ cask "1password-cli"
 # ============================================================================
 # Agent / AI Tools
 # ============================================================================
-brew "openai/openai/codex"   # OpenAI Codex CLI
+# Note: Install codex manually with: brew install codex
+# (or from OpenAI: npm install -g @openai/codex)
 
 # ============================================================================
 # Development Apps
