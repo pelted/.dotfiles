@@ -19,7 +19,7 @@ fi
 # Install tools via Brewfile
 # ============================================================================
 echo "📦 Installing packages from Brewfile..."
-brew bundle --file="$HOME/.local/share/chezmoi/Brewfile" --no-lock
+brew bundle --file="$HOME/.local/share/chezmoi/Brewfile"
 
 # ============================================================================
 # Configure 1Password CLI

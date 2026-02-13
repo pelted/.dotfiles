@@ -3,6 +3,6 @@
 # This script runs whenever the Brewfile changes
 
 echo "📦 Brewfile changed, running brew bundle..."
-brew bundle --file="{{ .chezmoi.sourceDir }}/Brewfile" --no-lock
+brew bundle --file="{{ .chezmoi.sourceDir }}/Brewfile"
 
 echo "✅ Brew bundle complete"
