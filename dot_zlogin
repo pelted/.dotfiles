@@ -1,0 +1,8 @@
+# Login shell - runs once after .zshrc on new terminal sessions
+
+# Print a random fortune (if installed)
+if (( $+commands[fortune] )); then
+    print
+    fortune -s
+    print
+fi

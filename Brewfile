@@ -39,6 +39,7 @@ brew "htop"
 brew "tree"
 brew "tldr"              # Simplified man pages
 brew "mas"               # Mac App Store CLI
+brew "fortune"           # Random quotes on terminal start
 brew "mackup"            # App settings backup/restore
 brew "terminal-notifier" # macOS notifications from CLI
 
