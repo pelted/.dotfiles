@@ -1,16 +1,16 @@
 #!/bin/bash
-# Configure GitHub CLI with SSH keys
+# Bootstrap GitHub CLI authentication with 1Password SSH keys
 # This runs once after chezmoi apply
 
 set -e
 
 echo ""
-echo "🔐 GitHub CLI Configuration"
-echo "============================"
+echo "🔐 GitHub CLI Bootstrap"
+echo "======================="
 
 # Check if gh is installed
 if ! command -v gh &> /dev/null; then
-    echo "⏭️  gh not installed yet, skipping (will run after brew bundle)"
+    echo "⏭️  gh not installed yet, skipping"
     exit 0
 fi
 
@@ -20,75 +20,82 @@ if ! command -v op &> /dev/null; then
     exit 0
 fi
 
-# Get the signing key from 1Password
-SIGNING_KEY=$(op item get "Github - Signing" --fields "public key" 2>/dev/null)
-if [[ -z "$SIGNING_KEY" ]]; then
-    echo "⚠️  Could not get signing key from 1Password"
-    echo "   Make sure 'Github - Signing' exists in your Private vault"
+# Check if already authenticated
+if gh auth status &> /dev/null; then
+    echo "✅ Already authenticated with GitHub CLI:"
+    gh auth status
     exit 0
 fi
 
-echo ""
-echo "📋 Your signing key:"
-echo "   $SIGNING_KEY"
+echo "📡 Not authenticated with GitHub CLI yet."
 echo ""
 
-# Function to add signing key to a GitHub account
-add_signing_key() {
-    local account_name=$1
-    
+# Get list of SSH keys from 1Password
+echo "🔑 Available SSH keys in 1Password:"
+echo ""
+
+# Store keys in array
+KEYS=()
+while IFS= read -r key; do
+    KEYS+=("$key")
+done < <(op item list --categories "SSH Key" --format=json 2>/dev/null | jq -r '.[].title')
+
+if [[ ${#KEYS[@]} -eq 0 ]]; then
+    echo "⚠️  No SSH keys found in 1Password"
+    exit 1
+fi
+
+# Display keys with numbers
+for i in "${!KEYS[@]}"; do
+    echo "  $((i+1)). ${KEYS[$i]}"
+done
+
+echo ""
+read -p "Select auth key to use [1-${#KEYS[@]}]: " -r KEY_NUM
+echo ""
+
+# Validate selection
+if [[ ! "$KEY_NUM" =~ ^[0-9]+$ ]] || [[ "$KEY_NUM" -lt 1 ]] || [[ "$KEY_NUM" -gt ${#KEYS[@]} ]]; then
+    echo "❌ Invalid selection"
+    exit 1
+fi
+
+SELECTED_KEY="${KEYS[$((KEY_NUM-1))]}"
+echo "Selected: $SELECTED_KEY"
+echo ""
+
+# Get the public key
+PUBLIC_KEY=$(op item get "$SELECTED_KEY" --fields "public key" 2>/dev/null)
+if [[ -z "$PUBLIC_KEY" ]]; then
+    echo "❌ Could not get public key from 1Password"
+    exit 1
+fi
+
+echo "📋 Public key:"
+echo "   $PUBLIC_KEY"
+echo ""
+
+# Authenticate with gh
+echo "🚀 Starting GitHub CLI authentication..."
+echo "   Select 'SSH' when prompted for git protocol"
+echo ""
+
+gh auth login -p ssh -h github.com
+
+echo ""
+
+# Check if key needs to be added to GitHub
+if gh ssh-key list 2>/dev/null | grep -q "$(echo $PUBLIC_KEY | awk '{print $2}')"; then
+    echo "✅ SSH key already exists in your GitHub account"
+else
+    read -p "Add this SSH key to your GitHub account? [y/N] " -n 1 -r
     echo ""
-    echo "🔑 Adding signing key to $account_name..."
-    
-    # Check if key already exists
-    if gh ssh-key list 2>/dev/null | grep -q "$(echo $SIGNING_KEY | awk '{print $2}')"; then
-        echo "   ✅ Signing key already added to this account"
-        return 0
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        echo "$PUBLIC_KEY" | gh ssh-key add --title "$SELECTED_KEY (dotfiles)" --type authentication
+        echo "✅ SSH key added to GitHub!"
     fi
-    
-    # Add the key
-    echo "$SIGNING_KEY" | gh ssh-key add --title "Signing Key (dotfiles)" --type signing
-    echo "   ✅ Signing key added!"
-}
-
-# Check current gh auth status
-echo "📡 Checking GitHub CLI authentication..."
-echo ""
-
-if ! gh auth status &> /dev/null; then
-    echo "⚠️  Not authenticated with GitHub CLI"
-    echo ""
-    echo "To set up GitHub CLI, run these commands:"
-    echo ""
-    echo "  # Personal account"
-    echo "  gh auth login"
-    echo ""
-    echo "  # Add signing key to personal account"
-    echo "  op item get 'Github - Signing' --fields 'public key' | gh ssh-key add --title 'Signing Key' --type signing"
-    echo ""
-    echo "  # Work account (if using multiple accounts)"
-    echo "  gh auth login"
-    echo "  gh auth switch --user <work-username>"
-    echo "  op item get 'Github - Signing' --fields 'public key' | gh ssh-key add --title 'Signing Key' --type signing"
-    echo ""
-    exit 0
-fi
-
-# Show current auth status
-echo "Current GitHub CLI authentication:"
-gh auth status
-echo ""
-
-# Prompt to add signing key
-read -p "Add signing key to current GitHub account? [y/N] " -n 1 -r
-echo ""
-
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-    add_signing_key "current account"
 fi
 
 echo ""
-echo "💡 Tip: To add the signing key to another GitHub account:"
-echo "   gh auth login  # login to other account"
-echo "   op item get 'Github - Signing' --fields 'public key' | gh ssh-key add --title 'Signing Key' --type signing"
+echo "✅ GitHub CLI configured!"
 echo ""
