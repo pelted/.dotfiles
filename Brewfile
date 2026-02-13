@@ -57,6 +57,7 @@ cask "codex"             # AI coding assistant
 cask "cursor"            # AI-powered editor
 cask "warp"              # AI-powered terminal
 cask "docker"            # Containers
+cask "jetbrains-toolbox" # JetBrains IDE manager
 
 # ============================================================================
 # Browsers
