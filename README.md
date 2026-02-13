@@ -71,7 +71,8 @@ chezmoi diff
 ├── private_dot_config/
 │   └── agent-instructions.md # Global AI assistant preferences
 ├── run_once_after_setup.sh  # One-time setup script
-└── run_onchange_brewfile.sh.tmpl # Auto-run brew bundle
+├── run_onchange_brewfile.sh.tmpl # Auto-run brew bundle
+└── run_onchange_after_install_private_fonts.sh # Licensed fonts from private tap
 ```
 
 ## Key Features
@@ -84,6 +85,21 @@ Secrets (git email, API keys) pulled from 1Password at apply time:
 ```
 {{ onepasswordRead "op://Private/item/field" }}
 ```
+
+### Private Fonts (Licensed)
+
+Licensed fonts are installed from a private Homebrew tap ([`pelted/homebrew-casks`](https://github.com/pelted/homebrew-casks)) via `run_onchange_after_install_private_fonts.sh`.
+
+This script:
+- Authenticates using `gh auth token` for private release asset downloads
+- Adds the private tap via SSH
+- Installs any casks defined in the script
+
+Because it's a `run_onchange_` script, it re-runs automatically whenever the script is modified. To add a new licensed font:
+
+1. Add the font to the private tap repo (see its README for full instructions)
+2. Add an install block to `run_onchange_after_install_private_fonts.sh`
+3. Commit and push -- all machines will pick it up on `chezmoi update`
 
 ### Agent-Ready
 Global agent instructions at `~/.config/agent-instructions.md` for consistent AI assistant behavior.

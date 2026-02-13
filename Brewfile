@@ -71,7 +71,7 @@ cask "lm-studio"         # Local LLM runner
 cask "vscodium"          # VS Code without telemetry
 cask "cursor"            # AI-powered editor
 cask "warp"              # AI-powered terminal
-cask "docker"            # Containers
+cask "docker-desktop"    # Containers
 cask "jetbrains-toolbox" # JetBrains IDE manager
 cask "ngrok"             # Secure tunnels to localhost
 cask "rapidapi"          # API testing (Paw)
