@@ -1,15 +1,11 @@
 # ============================================================================
-# Modern ZSH Config - No oh-my-zsh, fast startup
+# Interactive ZSH Config
 # ============================================================================
+# Environment variables are in .zshenv - this file is for interactive config only
 
 # ----------------------------------------------------------------------------
-# Environment
+# History
 # ----------------------------------------------------------------------------
-export LANG=en_US.UTF-8
-export EDITOR="cursor"
-export VISUAL="$EDITOR"
-
-# History configuration
 HISTFILE=~/.zsh_history
 HISTSIZE=50000
 SAVEHIST=50000
@@ -18,11 +14,6 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt INC_APPEND_HISTORY    # Add commands immediately
 setopt SHARE_HISTORY         # Share history between sessions
-
-# ----------------------------------------------------------------------------
-# 1Password SSH Agent
-# ----------------------------------------------------------------------------
-export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 # ----------------------------------------------------------------------------
 # Tool Initialization
@@ -116,6 +107,7 @@ alias glog="git log --oneline --graph --decorate -20"
 # Aliases - Tools
 # ----------------------------------------------------------------------------
 alias code="codium"
+alias ca="cursor-agent"
 alias cz="chezmoi"
 alias czcd="chezmoi cd"
 alias czadd="chezmoi re-add"

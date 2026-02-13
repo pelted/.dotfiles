@@ -1,15 +1,15 @@
 [user]
-	name = {{ onepasswordRead "op://Private/Me/Internet Details/display name" }}
-	email = {{ onepasswordRead "op://Private/Me/Internet Details/agilebits email" }}
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG...
+        name = {{ onepasswordRead "op://Private/Me/Internet Details/display name" }}
+        email = {{ onepasswordRead "op://Private/Me/Internet Details/agilebits email" }}
+        signingkey = {{ onepasswordRead "op://Private/Github - Personal/public key" }}
 
 [color]
 	ui = true
 
 [core]
-	excludesfile = ~/.gitignore_global
-	editor = cursor --wait
-	pager = less -FRX
+        excludesfile = ~/.gitignore_global
+        editor = codium --wait
+        pager = less -FRX
 
 [init]
 	defaultBranch = main

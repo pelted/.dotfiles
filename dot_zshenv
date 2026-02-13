@@ -1,14 +1,44 @@
-# Environment variables - loaded for all shell types (interactive, non-interactive, login, non-login)
-# Keep this minimal - heavy lifting should be in .zshrc
+# ============================================================================
+# Environment Variables
+# ============================================================================
+# Loaded for ALL shell types (interactive, non-interactive, login, non-login)
+# All exports belong here - keep .zshrc for interactive config only
 
+# ----------------------------------------------------------------------------
+# Locale
+# ----------------------------------------------------------------------------
+export LANG=en_US.UTF-8
+
+# ----------------------------------------------------------------------------
 # XDG Base Directory (standardized config locations)
+# ----------------------------------------------------------------------------
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+# ----------------------------------------------------------------------------
+# Editor
+# ----------------------------------------------------------------------------
+export EDITOR="codium"
+export VISUAL="$EDITOR"
+
+# ----------------------------------------------------------------------------
 # Homebrew
+# ----------------------------------------------------------------------------
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
 
+# ----------------------------------------------------------------------------
 # 1Password
+# ----------------------------------------------------------------------------
 export OP_ACCOUNT=my.1password.com
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
+# ----------------------------------------------------------------------------
+# PATH (centralized - don't add PATH in other .z* files)
+# ----------------------------------------------------------------------------
+# Order matters: earlier entries take precedence
+export PATH="$HOME/.local/bin:$PATH"
+
+# Add other custom paths below as needed:
+# export PATH="$HOME/some/custom/path:$PATH"

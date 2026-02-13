@@ -14,13 +14,26 @@ Modern, agent-focused dotfiles managed with [chezmoi](https://chezmoi.io/).
 
 ### New Machine Setup
 
-```bash
-# Install chezmoi and apply dotfiles
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply pelted/.dotfiles
+**Prerequisites:** Install [1Password](https://1password.com/downloads/mac/) and sign in first.
 
-# Or if chezmoi is already installed
-chezmoi init pelted/.dotfiles
-chezmoi apply
+Then run the bootstrap script:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/pelted/.dotfiles/main/bootstrap.sh | bash
+```
+
+This will:
+1. Install Xcode Command Line Tools (if needed)
+2. Install Homebrew
+3. Install chezmoi and 1Password CLI
+4. Verify 1Password CLI integration
+5. Apply all dotfiles
+
+### Already Have Homebrew?
+
+```bash
+brew install chezmoi
+chezmoi init pelted/.dotfiles --apply
 ```
 
 ### Updating
