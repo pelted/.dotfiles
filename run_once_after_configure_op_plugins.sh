@@ -21,7 +21,8 @@ if ! op account list &> /dev/null; then
 fi
 
 # Plugins to configure
-PLUGINS=(gh heroku ngrok openai)
+# Note: gh is excluded - we use SSH auth via run_once_after_configure_gh.sh
+PLUGINS=(heroku ngrok openai)
 
 echo ""
 echo "Checking 1Password CLI plugins..."
