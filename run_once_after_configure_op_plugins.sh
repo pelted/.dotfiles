@@ -21,7 +21,7 @@ if ! op account list &> /dev/null; then
 fi
 
 # Plugins to configure
-PLUGINS=(gh heroku openai)
+PLUGINS=(gh heroku ngrok openai)
 
 echo ""
 echo "Checking 1Password CLI plugins..."
