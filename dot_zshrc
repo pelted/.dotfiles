@@ -115,6 +115,7 @@ alias glog="git log --oneline --graph --decorate -20"
 # ----------------------------------------------------------------------------
 # Aliases - Tools
 # ----------------------------------------------------------------------------
+alias code="codium"
 alias cz="chezmoi"
 alias czcd="chezmoi cd"
 alias czadd="chezmoi re-add"

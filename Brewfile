@@ -54,9 +54,10 @@ cask "codex"             # AI coding assistant
 # ============================================================================
 # Development Apps
 # ============================================================================
+cask "vscodium"          # VS Code without telemetry
 cask "cursor"            # AI-powered editor
 cask "warp"              # AI-powered terminal
-cask "docker-desktop"    # Containers
+cask "docker"            # Containers
 cask "jetbrains-toolbox" # JetBrains IDE manager
 
 # ============================================================================
