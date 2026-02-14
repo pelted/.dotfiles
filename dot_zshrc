@@ -135,3 +135,11 @@ mkcd() {
 # 1Password CLI plugins (if configured)
 # ----------------------------------------------------------------------------
 [[ -f ~/.config/op/plugins.sh ]] && source ~/.config/op/plugins.sh
+
+# History search with arrow keys (filter by prefix while typing)
+bindkey "${terminfo[kcuu1]}" history-search-backward
+bindkey "${terminfo[kcud1]}" history-search-forward
+
+# History search with arrow keys
+bindkey "${terminfo[kcuu1]}" history-search-backward
+bindkey "${terminfo[kcud1]}" history-search-forward

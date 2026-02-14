@@ -19,5 +19,5 @@ disable_tools = []
 
 [tools]
 # Global tool versions - override per-project with .mise.toml
-# ruby = "3.3"
+# ruby = "3.4.8"
 # node = "lts"
