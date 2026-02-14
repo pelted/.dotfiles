@@ -63,6 +63,7 @@ cask "1password-cli"
 # Agent / AI Tools
 # ============================================================================
 cask "codex"             # AI coding assistant
+cask "codex-app"         # Codex desktop app
 cask "lm-studio"         # Local LLM runner
 
 # ============================================================================
