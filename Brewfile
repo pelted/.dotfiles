@@ -69,7 +69,7 @@ cask "lm-studio"         # Local LLM runner
 # ============================================================================
 # Development Apps
 # ============================================================================
-cask "vscodium"          # VS Code without telemetry
+cask "zed"               # Text editor
 cask "cursor"            # AI-powered editor
 cask "warp"              # AI-powered terminal
 cask "docker-desktop"    # Containers

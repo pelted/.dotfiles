@@ -80,6 +80,9 @@ alias df="df -h"
 alias cat="bat --paging=never"
 alias grep="grep --color=auto"
 
+# Helper
+alias code="zed"
+
 # ----------------------------------------------------------------------------
 # Aliases - Ruby/Rails (the ones you actually use)
 # ----------------------------------------------------------------------------
