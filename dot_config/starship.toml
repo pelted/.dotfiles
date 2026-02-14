@@ -46,6 +46,7 @@ color_yellow = '#d79921'
 [os]
 disabled = false
 style = "bg:color_orange fg:color_fg0"
+format = "[$symbol ]($style)"
 
 [os.symbols]
 Windows = "󰍲"
@@ -72,7 +73,7 @@ RedHatEnterprise = "󱄛"
 Pop = ""
 
 [username]
-show_always = true
+show_always = false
 style_user = "bg:color_orange fg:color_fg0"
 style_root = "bg:color_orange fg:color_fg0"
 format = '[ $user ]($style)'
