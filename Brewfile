@@ -64,6 +64,8 @@ cask "1password-cli"
 # ============================================================================
 cask "codex"             # AI coding assistant
 cask "codex-app"         # Codex desktop app
+cask "claude"            # Claude AI chat assistant
+cask "claude-code"       # Claude AI coding assistant
 cask "lm-studio"         # Local LLM runner
 
 # ============================================================================
