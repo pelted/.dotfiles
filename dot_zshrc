@@ -106,7 +106,8 @@ alias glog="git log --oneline --graph --decorate -20"
 # ----------------------------------------------------------------------------
 # Aliases - Tools
 # ----------------------------------------------------------------------------
-alias agent="codex --model gpt-5.2"
+alias agent="claude"
+alias chat="claude --model sonnet"
 alias code="zed"
 alias ca="cursor-agent"
 alias cz="chezmoi"
