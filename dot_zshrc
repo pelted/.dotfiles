@@ -120,6 +120,15 @@ alias czupdate="chezmoi update"
 # Functions
 # ----------------------------------------------------------------------------
 
+# Launch Zed with OPENAI_API_KEY resolved from 1Password when configured.
+zed() {
+  if command -v op >/dev/null 2>&1 && [[ "${OPENAI_API_KEY:-}" == op://* ]]; then
+    op run -- command zed "$@"
+  else
+    command zed "$@"
+  fi
+}
+
 # Kill processes matching a pattern
 killit() {
   ps aux | grep -v "grep" | grep "$@" | awk '{print $2}' | xargs sudo kill
