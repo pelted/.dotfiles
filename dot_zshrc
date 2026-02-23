@@ -108,7 +108,7 @@ alias glog="git log --oneline --graph --decorate -20"
 # ----------------------------------------------------------------------------
 alias agent="claude"
 alias chat="claude --model sonnet"
-alias code="zed"
+alias gg="gemini -m gemini-3.1-pro"
 alias ca="cursor-agent"
 alias cz="chezmoi"
 alias czcd="chezmoi cd"

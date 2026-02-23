@@ -67,8 +67,8 @@ cask "codex-app"         # Codex desktop app
 cask "chatgpt"           # ChatGPT desktop app
 cask "claude"            # Claude AI chat assistant
 cask "claude-code"       # Claude AI coding assistant
-cask "gemini-cli"        # Gemini AI chat assistant
 cask "lm-studio"         # Local LLM runner
+brew "gemini-cli"        # Gemini AI chat assistant
 
 # ============================================================================
 # Development Apps
