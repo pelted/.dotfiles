@@ -153,4 +153,4 @@ bindkey "${terminfo[kcuu1]}" history-search-backward
 bindkey "${terminfo[kcud1]}" history-search-forward
 
 # OpenClaw Completion
-source "/Users/chris/.openclaw/completions/openclaw.zsh"
+# source "/Users/chris/.openclaw/completions/openclaw.zsh"
