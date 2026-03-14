@@ -73,7 +73,7 @@ brew "gemini-cli"        # Gemini AI chat assistant
 # ============================================================================
 # Development Apps
 # ============================================================================
-cask "zed"               # Text editor
+cask "vscodium"          # Editor
 cask "cursor"            # AI-powered editor
 cask "warp"              # AI-powered terminal
 cask "docker-desktop"    # Containers
