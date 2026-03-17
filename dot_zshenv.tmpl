@@ -46,6 +46,9 @@ export OPENAI_API_KEY="$OPENAI_API_KEY_OP_REFERENCE"
 # mise shims provide Ruby, Node, yarn, etc. to ALL shell contexts (scripts,
 # tmux, overmind, etc.). Interactive shells also get `mise activate` in .zshrc
 # which takes precedence over shims with directory-aware version switching.
+if [ -d "/Applications/Docker.app/Contents/Resources/bin" ]; then
+  export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
+fi
 export PATH="$HOME/.local/share/mise/shims:$HOME/.local/bin:$PATH"
 
 # Add other custom paths below as needed:

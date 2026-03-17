@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(git shortlog:*)",
+      "Bash(mkdir -p \"$MEMORY_DIR/system/human/prefs\" \"$MEMORY_DIR/system/persona\" \"$MEMORY_DIR/system/project/commands\" \"$MEMORY_DIR/system/project/tooling\")",
+      "Bash(mkdir -p \"$MEMORY_DIR/system/project/architecture\" \"$MEMORY_DIR/system/project/conventions\" \"$MEMORY_DIR/system/project/overview\" \"$MEMORY_DIR/system/project/notes\" \"$MEMORY_DIR/system/project/security\" \"$MEMORY_DIR/system/project/tooling/brew\" \"$MEMORY_DIR/system/project/tooling/chezmoi\" \"$MEMORY_DIR/system/project/tooling/op\" \"$MEMORY_DIR/system/project/tooling/shell\" \"$MEMORY_DIR/system/project/tooling/mise\")",
+      "Bash(mkdir -p \"$MEMORY_DIR/system/human/identity\" \"$MEMORY_DIR/system/human/context\" \"$MEMORY_DIR/system/persona/behavior\" \"$MEMORY_DIR/system/persona/rules\" \"$MEMORY_DIR/system/persona/updates\" \"$MEMORY_DIR/system/project/commands/apply\" \"$MEMORY_DIR/system/project/commands/update\")",
+      "Bash(cat:*)",
+      "Bash(find:*)",
+      "Bash(SPLIT_DIR=/tmp/history-splits\nmkdir -p \"$SPLIT_DIR\"\nwc -l ~/.claude/history.jsonl ~/.codex/history.jsonl 2>/dev/null\nLINES=$(wc -l < ~/.claude/history.jsonl)\nNUM_WORKERS=3\nCHUNK_SIZE=$(( LINES / NUM_WORKERS + 1 ))\nsplit -l $CHUNK_SIZE ~/.claude/history.jsonl \"$SPLIT_DIR/claude-\"\nLINES=$(wc -l < ~/.codex/history.jsonl)\nif [ \"$LINES\" -gt 100 ]; then\n  CHUNK_SIZE=$(( LINES / NUM_WORKERS + 1 ))\n  split -l $CHUNK_SIZE ~/.codex/history.jsonl \"$SPLIT_DIR/codex-\"\nelse\n  cp ~/.codex/history.jsonl \"$SPLIT_DIR/codex-aa\"\nfi\nfor f in \"$SPLIT_DIR\"/*; do mv \"$f\" \"$f.jsonl\" 2>/dev/null; done\nwc -l \"$SPLIT_DIR\"/*.jsonl)"
+    ]
+  }
+}

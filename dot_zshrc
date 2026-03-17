@@ -147,10 +147,9 @@ mkcd() {
 # History search with arrow keys (filter by prefix while typing)
 bindkey "${terminfo[kcuu1]}" history-search-backward
 bindkey "${terminfo[kcud1]}" history-search-forward
-
-# History search with arrow keys
-bindkey "${terminfo[kcuu1]}" history-search-backward
-bindkey "${terminfo[kcud1]}" history-search-forward
+# Explicit ANSI escape sequences (some terminals don't map terminfo)
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
 
 # OpenClaw Completion
 # source "/Users/chris/.openclaw/completions/openclaw.zsh"
