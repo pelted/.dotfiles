@@ -1,0 +1,15 @@
+#!/bin/bash
+# Trust the OpenClaw library CA cert in the macOS system keychain.
+# Cert hash: {{ include "dot_config/openclaw/certs/openclaw-library-ca.pem" | sha256sum }}
+
+CERT="$HOME/.config/openclaw/certs/openclaw-library-ca.pem"
+
+if [[ ! -f "$CERT" ]]; then
+  echo "openclaw cert not found at $CERT, skipping trust step"
+  exit 0
+fi
+
+echo "Trusting OpenClaw CA cert in system keychain..."
+sudo security add-trusted-cert -d -r trustRoot \
+  -k /Library/Keychains/System.keychain \
+  "$CERT"

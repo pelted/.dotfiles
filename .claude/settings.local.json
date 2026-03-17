@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /Users/chris/.local/share/chezmoi/dot_config/openclaw/certs)",
+      "Bash(cp ~/openclaw.library.local.crt /Users/chris/.local/share/chezmoi/dot_config/openclaw/certs/openclaw-library-ca.pem)"
+    ]
+  }
+}
