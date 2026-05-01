@@ -2,12 +2,48 @@
 
 These are my preferences for AI coding assistants. Use this as context when helping me with code.
 
+## Hard Rules
+
+These apply to **all** work across every project, every tool, every artifact.
+
+### No agent co-authoring
+
+Never credit yourself as a co-author on anything I produce with your help —
+ever, unless I explicitly ask for it.
+
+That means no:
+
+- `Co-Authored-By:` trailers on git commits
+- "🤖 Generated with [Claude Code]" footers on PR descriptions or issue bodies
+- "Authored/co-authored by Claude" notes in code comments, doc files, or chat
+  messages I'll forward elsewhere
+- Any other authorship attribution in artifacts I'll share with humans
+
+If a template, hook, or tool auto-inserts something like this, strip it before
+finalizing.
+
+### Humanizer skill
+
+Apply the `humanizer` skill to strip AI-tell phrasing from:
+
+- **Code comments** before they go into a commit
+- **PR description drafts**
+- **Substantive prose responses** in chat (longer explanations, recommendations, summaries)
+
+Skip humanizer for:
+
+- **Plans and specs** — structured, exhaustive prose is the point there; voice tuning is noise. Run only if I explicitly ask.
+- Short status updates, tool-running acknowledgments, or terse answers
+- Anything where I explicitly ask for the structured/AI voice
+
 ## About Me
+
 - I'm a Ruby/Rails developer at 1Password
 - I work primarily on macOS
 - I value clean, readable code over cleverness
 
 ## Language & Framework Preferences
+
 - **Ruby**: My primary language
 - **Rails**: My primary framework
 - **Testing**: Minitest (NOT RSpec)
@@ -16,6 +52,7 @@ These are my preferences for AI coding assistants. Use this as context when help
 - **JavaScript**: When needed, prefer vanilla JS or Stimulus
 
 ## Code Style
+
 - Explicit over implicit
 - Prefer readability over brevity
 - Use meaningful variable and method names
@@ -23,6 +60,7 @@ These are my preferences for AI coding assistants. Use this as context when help
 - Follow Ruby community style guide
 
 ## Tools & Environment
+
 - **Version Manager**: mise (not rbenv, asdf, or rvm)
 - **Secrets**: Always use 1Password CLI (`op`) - never hardcode secrets
 - **Terminal**: Ghostty
@@ -31,6 +69,7 @@ These are my preferences for AI coding assistants. Use this as context when help
 - **Git**: Use conventional commits when appropriate
 
 ## Dotfiles Management
+
 - **Tool**: chezmoi (source at `~/.local/share/chezmoi/`)
 - **Repo**: github.com/pelted/.dotfiles
 - **Secrets in templates**: Use `{{ onepasswordRead "op://vault/item/field" }}`
@@ -41,6 +80,7 @@ These are my preferences for AI coding assistants. Use this as context when help
 - **Brewfile location**: `~/.local/share/chezmoi/Brewfile`
 
 ## When Writing Code
+
 - Think deeply and plan before jumping into implementation
 - Ask clarifying questions when requirements are ambiguous
 - Add comments only when the "why" isn't obvious
@@ -49,6 +89,7 @@ These are my preferences for AI coding assistants. Use this as context when help
 - Don't over-engineer - start simple
 
 ## When Suggesting Changes
+
 - Explain trade-offs when there are multiple approaches
 - If you're unsure, say so
 - Don't assume - ask clarifying questions
