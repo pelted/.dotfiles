@@ -25,8 +25,8 @@ These are my preferences for AI coding assistants. Use this as context when help
 ## Tools & Environment
 - **Version Manager**: mise (not rbenv, asdf, or rvm)
 - **Secrets**: Always use 1Password CLI (`op`) - never hardcode secrets
-- **Terminal**: Warp
-- **Editor**: Zed (EDITOR), Cursor (work)
+- **Terminal**: Ghostty
+- **Editor**: VS Code (EDITOR), Cursor (work)
 - **IDE**: JetBrains (RubyMine, Rider)
 - **Git**: Use conventional commits when appropriate
 
