@@ -82,6 +82,7 @@ cask "jetbrains-toolbox" # JetBrains IDE manager
 cask "ngrok"             # Secure tunnels to localhost
 cask "rapidapi"          # API testing (Paw)
 cask "transmit"          # FTP/SFTP client
+cask "obsidian"           # Knowledge base / note-taking
 
 # ============================================================================
 # Browsers
