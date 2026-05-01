@@ -39,10 +39,23 @@ tmp/
 .ruby-version
 .ruby-gemset
 
-# Agent files (per-project, don't commit)
-AGENTS.md
-.cursorrules
-CLAUDE.md
+# Agent files
+# Note: canonical AGENTS.md / CLAUDE.md / .cursorrules are typically
+# team-shared and SHOULD be committed. Only the personal `.local`
+# variants and agent-tooling scratch dirs are ignored globally.
+CLAUDE.local.md
+AGENTS.local.md
+.cursorrules.local
+
+# Claude Code scratch / per-checkout state
+.claude/worktrees/
+.claude/projects/
+.claude/todos/
+.claude/settings.local.json
+
+# Other agent tooling
+.aider*
+.agent-shell*
 
 # 1Password
 .op/

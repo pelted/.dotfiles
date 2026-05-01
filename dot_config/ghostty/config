@@ -1,0 +1,6 @@
+macos-secure-input-indication = false
+font-family = MesloLGS Nerd Font
+font-size = 16
+window-padding-x = 8
+window-padding-y = 4
+theme = Argonaut
