@@ -36,6 +36,20 @@ Skip humanizer for:
 - Short status updates, tool-running acknowledgments, or terse answers
 - Anything where I explicitly ask for the structured/AI voice
 
+### Private notes / Obsidian vault skill
+
+When entering a project that has a `.private/` directory, or when I ask to set
+up private working notes in a project that doesn't have one yet, use the
+`private-notes` skill. It owns the conventions for directory layout, YAML
+frontmatter, `[[wiki-link]]` usage (including the hard prohibition on using
+that syntax in commits, PR descriptions, and GitHub comments), archive +
+`INDEX.md` hygiene, and commit discipline for the private repo when one
+exists.
+
+Skill location: `~/.claude/skills/private-notes/SKILL.md`. Treat it as the
+single source of truth — don't restate its conventions in per-project
+`CLAUDE.local.md` files.
+
 ## About Me
 
 - I'm a Ruby/Rails developer at 1Password
