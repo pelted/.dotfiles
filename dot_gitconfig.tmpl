@@ -6,15 +6,16 @@
 [color]
         ui = true
 
-# Work overrides (any of these directories use work email)
-[includeIf "gitdir:~/Documents/Code/Kolide.nosync/"]
-        path = ~/.gitconfig-work
+# Kolide repos (Kolide product work — chris@kolide.co)
+[includeIf "gitdir:~/Code/Kolide.nosync/"]
+        path = ~/.gitconfig-kolide
 
-[includeIf "gitdir:~/Documents/Code/Work/"]
-        path = ~/.gitconfig-work
+# Agilebits / 1Password work (non-Kolide)
+[includeIf "gitdir:~/Code/Work/"]
+        path = ~/.gitconfig-agilebits
 
-[includeIf "gitdir:~/Documents/Code/Work.nosync/"]
-        path = ~/.gitconfig-work
+[includeIf "gitdir:~/Code/Work.nosync/"]
+        path = ~/.gitconfig-agilebits
 
 [core]
         excludesfile = ~/.gitignore_global
@@ -57,3 +58,4 @@
 
 [gpg "ssh"]
 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+	allowedSignersFile = ~/.config/git/allowed_signers
