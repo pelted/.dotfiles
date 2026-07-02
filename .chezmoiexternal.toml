@@ -1,0 +1,11 @@
+# External git repos managed by chezmoi.
+# Cloned on `chezmoi apply` if absent; pulled at most once per refreshPeriod.
+# These are editable note repos — chezmoi clones/pulls only, never commits.
+# A pull against uncommitted local changes will error out rather than
+# clobber, so commit-and-push keeps `chezmoi apply` quiet.
+
+# Device-wide context / agent notes (private). Cloned into ~/.context
+[".context"]
+    type = "git-repo"
+    url = "https://github.com/pelted/context-global.git"
+    refreshPeriod = "168h"
