@@ -31,7 +31,7 @@ When given text to humanize:
 1. **Identify AI patterns** - Scan for the patterns listed below.
 2. **Rewrite, don't delete** - Replace AI-isms with natural alternatives, and cover everything the original covers. If the original has five paragraphs, the rewrite has five paragraphs.
 3. **Preserve meaning** - Keep the core message intact.
-4. **Match the voice** - Fit the intended tone (formal, casual, technical). Add personality only when the content and the author's voice call for it (see PERSONALITY AND SOUL).
+4. **Match the voice** - Fit the intended tone (formal, casual, technical), and apply the author's voice by default (see PERSONALITY AND SOUL). Keep the text strictly neutral only when explicitly asked, or when the artifact genuinely requires it.
 
 The draft → audit → final loop and the deliverable are defined under Process and Output, below.
 
@@ -61,7 +61,7 @@ If the user provides a writing sample (their own previous writing), analyze it b
 
 Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as obvious as slop. Good writing has a human behind it.
 
-**Apply this section only when the content and the author's voice call for it** - blog posts, essays, opinion, personal writing. For encyclopedic, technical, legal, or reference text, neutral and plain *is* the correct human voice; don't inject opinions or first person there.
+**Apply this section by default.** The author's voice belongs in almost everything you're asked to write: not just blog posts, essays, opinion, and personal writing, but docs, technical explanations, and reference material too. Keep the text strictly neutral (no opinions, no first person) only when explicitly asked for a neutral register, or when the artifact truly requires it (legal text, formal specs). Treat neutral as the exception you reach for on request, not the default.
 
 ### Signs of soulless writing (even if technically "clean"):
 - Every sentence is the same length and structure
