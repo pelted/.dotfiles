@@ -1,1 +1,1 @@
-@~/.config/agent-instructions.md
+@~/.context/agent-instructions.md

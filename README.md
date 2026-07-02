@@ -68,8 +68,7 @@ chezmoi diff
 │   ├── starship.toml        # Prompt configuration
 │   └── mise/
 │       └── config.toml      # Version manager config
-├── private_dot_config/
-│   └── agent-instructions.md # Global AI assistant preferences
+├── .chezmoiexternal.toml    # Clones private context-global repo into ~/.context
 ├── run_once_after_setup.sh  # One-time setup script
 ├── run_onchange_brewfile.sh.tmpl # Auto-run brew bundle
 └── run_onchange_after_install_private_fonts.sh # Licensed fonts from private tap
@@ -102,7 +101,11 @@ Because it's a `run_onchange_` script, it re-runs automatically whenever the scr
 3. Commit and push -- all machines will pick it up on `chezmoi update`
 
 ### Agent-Ready
-Global agent instructions at `~/.config/agent-instructions.md` for consistent AI assistant behavior.
+Global agent instructions and cross-device context live in the **private**
+`context-global` repo, cloned to `~/.context` via `.chezmoiexternal.toml`
+(kept out of this public repo). `~/.context/agent-instructions.md` is the
+source of truth for AI assistant behavior; Claude Code (`~/.claude/CLAUDE.md`)
+and Codex (`~/.codex/AGENTS.md`) are thin pointers into it.
 
 ## Requirements
 
