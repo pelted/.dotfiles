@@ -2,6 +2,22 @@
 
 These are my preferences for AI coding assistants. Use this as context when helping me with code.
 
+## Shared Context & Memory
+
+Durable context that should follow me across machines and across AI tools
+(Claude Code, Codex, Cursor, Letta, ...) lives in **git, not in any vendor's
+account** — I use different Claude/OpenAI logins on my work and personal
+laptops, so vendor-side memory doesn't travel with me.
+
+- **`~/.context/`** — device-wide notes and agent context (the private
+  `context-global` repo, cloned here by chezmoi). **Read
+  `~/.context/dashboard.md` first**; it's the table of contents for the whole
+  `context-*` repo family. Per-project context lives in `context-<project>`
+  repos cloned into `<project>/.private/`.
+- Record durable, cross-session facts there (or in the relevant
+  `context-<project>` repo) rather than in a single tool's local memory, so
+  every tool and both laptops see the same thing.
+
 ## Hard Rules
 
 These apply to **all** work across every project, every tool, every artifact.
