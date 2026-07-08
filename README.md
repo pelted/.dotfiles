@@ -29,12 +29,35 @@ This will:
 4. Verify 1Password CLI integration
 5. Apply all dotfiles
 
+During `apply`, a few one-time scripts run **interactively**, so keep 1Password
+unlocked and its CLI integration on:
+
+- **GitHub CLI auth** (`run_once_after_configure_gh.sh`) — prompts you to pick an
+  SSH key from 1Password and signs `gh` in over SSH.
+- **1Password CLI plugins** (`run_once_after_configure_op_plugins.sh`) — runs
+  `op plugin init` for heroku, ngrok, and openai.
+- **Brew bundle + mise trust** (`run_once_after_setup.sh`) — installs everything
+  in the Brewfile.
+- **Private fonts** (`run_onchange_after_install_private_fonts.sh`) — licensed
+  fonts from the private tap; needs the GitHub CLI auth above.
+
 ### Already Have Homebrew?
 
 ```bash
 brew install chezmoi
 chezmoi init pelted/.dotfiles --apply
 ```
+
+### After Setup
+
+Once `apply` finishes:
+
+1. Restart your shell: `exec zsh`
+2. Sign in to the 1Password CLI if needed: `op signin`
+3. Install language runtimes: `mise use ruby@3.3 node@lts`
+4. Confirm the templated git identity resolved: `git config user.email`
+   (pulled from 1Password via `~/.gitconfig`)
+5. Confirm `~/.context` cloned (see [Private Context Repos](#private-context-repos))
 
 ### Updating
 
@@ -106,6 +129,20 @@ Global agent instructions and cross-device context live in the **private**
 (kept out of this public repo). `~/.context/agent-instructions.md` is the
 source of truth for AI assistant behavior; Claude Code (`~/.claude/CLAUDE.md`)
 and Codex (`~/.codex/AGENTS.md`) are thin pointers into it.
+
+### Private Context Repos
+
+`context-global` is a **private** repo, so the `~/.context` clone in
+`.chezmoiexternal.toml` needs GitHub auth. On a brand-new machine the first
+`chezmoi apply` runs the external clone *before* the GitHub CLI step has
+signed you in, so that clone can fail the first time. Fix: after the `gh` auth
+prompt completes, run `chezmoi apply` (or `chezmoi update`) again and `~/.context`
+will pull.
+
+Per-project context lives in sibling `context-<project>` repos (e.g.
+`context-k2`), cloned manually into each project's `.private/` directory as you
+set that project up — they are not managed by chezmoi. See `~/.context/dashboard.md`
+for the full repo family.
 
 ## Requirements
 
