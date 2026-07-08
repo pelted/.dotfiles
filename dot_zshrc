@@ -144,7 +144,7 @@ bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
 
 # OpenClaw Completion
-[[ -f "/Users/chris/.openclaw/completions/openclaw.zsh" ]] && source "/Users/chris/.openclaw/completions/openclaw.zsh"
+[[ -f "$HOME/.openclaw/completions/openclaw.zsh" ]] && source "$HOME/.openclaw/completions/openclaw.zsh"
 
 # Local SSL cert for nginx proxy (managed by chezmoi)
 export NODE_EXTRA_CA_CERTS="$HOME/.config/openclaw/certs/openclaw-library-ca.pem"
