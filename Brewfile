@@ -41,7 +41,6 @@ brew "tldr"              # Simplified man pages
 brew "mas"               # Mac App Store CLI
 brew "mole"              # Deep clean and optimize your Mac
 brew "fortune"           # Random quotes on terminal start
-brew "mackup"            # App settings backup/restore
 brew "terminal-notifier" # macOS notifications from CLI
 
 # Process Management
@@ -76,8 +75,8 @@ brew "gemini-cli"        # Gemini AI chat assistant
 # ============================================================================
 cask "visual-studio-code"# Editor
 cask "cursor"            # AI-powered editor
-cask "warp"              # AI-powered terminal
 cask "docker-desktop"    # Containers
+cask "wouterdebie/tap/davit" # UI for Apple's container platform
 cask "jetbrains-toolbox" # JetBrains IDE manager
 cask "ngrok"             # Secure tunnels to localhost
 cask "rapidapi"          # API testing (Paw)

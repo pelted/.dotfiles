@@ -1,0 +1,26 @@
+{
+    "git.autofetch": true,
+    "claudeCode.preferredLocation": "panel",
+    "editor.fontSize": 15,
+    "editor.fontFamily": "MesloLGS Nerd Font",
+    "git.confirmSync": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "files.associations": {
+        "config": "plaintext"
+    },
+    "files.watcherExclude": {
+        "**/Library/Mobile Documents/**": true,
+        "**/Library/CloudStorage/**": true,
+        "**/Library/Caches/**": true,
+        "**/.Trash/**": true
+    },
+    "files.exclude": {
+        "**/Library/Mobile Documents": true,
+        "**/Library/CloudStorage": true
+    },
+    "search.exclude": {
+        "**/Library/Mobile Documents": true,
+        "**/Library/CloudStorage": true,
+        "**/Library/Caches": true
+    }
+}
