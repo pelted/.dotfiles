@@ -22,24 +22,36 @@ Then run the bootstrap script:
 curl -fsSL https://raw.githubusercontent.com/pelted/.dotfiles/main/bootstrap.sh | bash
 ```
 
-This will:
-1. Install Xcode Command Line Tools (if needed)
-2. Install Homebrew
-3. Install chezmoi and 1Password CLI
-4. Verify 1Password CLI integration
-5. Apply all dotfiles
+### Bootstrap order
 
-During `apply`, a few one-time scripts run **interactively**, so keep 1Password
-unlocked and its CLI integration on:
+Order matters, because chezmoi reads from 1Password *while it renders the
+templates*, and the one-time scripts depend on each other. The bootstrap script
+handles the mechanics; the sequence it produces is:
 
-- **GitHub CLI auth** (`run_once_after_configure_gh.sh`) — prompts you to pick an
-  SSH key from 1Password and signs `gh` in over SSH.
-- **1Password CLI plugins** (`run_once_after_configure_op_plugins.sh`) — runs
-  `op plugin init` for heroku, ngrok, and openai.
-- **Brew bundle + mise trust** (`run_once_after_setup.sh`) — installs everything
-  in the Brewfile.
-- **Private fonts** (`run_onchange_after_install_private_fonts.sh`) — licensed
-  fonts from the private tap; needs the GitHub CLI auth above.
+1. **1Password app — installed, signed in, CLI integration on.** Do this before
+   anything else. Settings → Developer → *Integrate with 1Password CLI* lets `op`
+   unlock from the app instead of a separate login.
+2. **Toolchain.** The bootstrap script installs Xcode Command Line Tools,
+   Homebrew, chezmoi, and the 1Password CLI, then verifies `op` can read an item.
+3. **Templates render.** `chezmoi init --apply` fills in `~/.gitconfig`,
+   `~/.zshenv`, and `~/.config/git/allowed_signers` via `onepasswordRead`. If
+   `op` can't read at this point, apply stops here.
+4. **Brew bundle.** `run_onchange_brewfile.sh` installs everything in the
+   Brewfile. It runs with the file changes, ahead of the scripts below.
+5. **One-time scripts, in this order** (chezmoi runs `after_` scripts
+   alphabetically):
+   1. `configure_gh` — signs the GitHub CLI in over SSH (pick a key from 1Password)
+   2. `configure_op_plugins` — `op plugin init` for heroku, ngrok, and openai
+   3. `install_private_fonts` — licensed fonts from the private tap; needs the
+      `gh` auth from step 1
+   4. `setup` — mise trust and remaining one-time setup
+   5. `trust_openclaw_cert` — trusts the openclaw CA certificate
+6. **Second `chezmoi apply`.** The `~/.context` clone in `.chezmoiexternal.toml`
+   runs during the file phase, *before* `configure_gh`, so it fails on the first
+   pass (the repo is private). Re-run `chezmoi apply` (or `chezmoi update`) once
+   `gh` is authenticated and it pulls. See [Private Context Repos](#private-context-repos).
+
+Keep 1Password unlocked for the whole run — steps 3, 5.1, and 5.3 all reach into it.
 
 ### Already Have Homebrew?
 
