@@ -1,5 +1,6 @@
 {
-    "git.autofetch": true,
+    "git.autofetch": false,
+    "git.autoRepositoryDetection": "openEditors",
     "claudeCode.preferredLocation": "panel",
     "editor.fontSize": 15,
     "editor.fontFamily": "MesloLGS Nerd Font",
