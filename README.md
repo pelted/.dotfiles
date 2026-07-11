@@ -142,6 +142,10 @@ Global agent instructions and cross-device context live in the **private**
 source of truth for AI assistant behavior; Claude Code (`~/.claude/CLAUDE.md`)
 and Codex (`~/.codex/AGENTS.md`) are thin pointers into it.
 
+Shared agent skills live in `~/.agents/skills`, which Codex reads directly.
+Chezmoi links each skill into `~/.claude/skills`, so Claude Code and Codex use
+the same canonical files.
+
 ### Private Context Repos
 
 `context-global` is a **private** repo, so the `~/.context` clone in

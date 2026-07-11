@@ -1,6 +1,5 @@
 ---
 name: private-notes
-version: 0.1.0
 description: |
   Bootstrap and maintain a personal Obsidian-compatible markdown vault for
   per-project working notes (plans, PR drafts, reviews, context, archive).
@@ -8,7 +7,6 @@ description: |
   `.private/` directory, or invoke explicitly to bootstrap a new vault in a
   project that doesn't have one yet.
 license: MIT
-compatibility: claude-code
 allowed-tools:
   - Read
   - Write
@@ -75,8 +73,9 @@ Drop the INDEX.md template (see *Archive and INDEX* below).
   - Create `.private/.gitignore` containing `.DS_Store` and `._*`
   - Optionally ask about a remote, but don't push to one without a URL
     explicitly provided by the user
-- Update or create `CLAUDE.local.md` at the *project* root with the thin
-  pointer template (see *Project pointer file* below)
+- Update or create the current tool's local instruction file at the *project*
+  root with the thin pointer template (see *Project pointer file* below):
+  `CLAUDE.local.md` for Claude Code or an ignored `AGENTS.override.md` for Codex.
 
 ### Step 4 — in-repo-mode setup (if Step 1 = in-repo)
 
@@ -288,15 +287,16 @@ SORT date DESC
 
 ## Project pointer file
 
-In private mode, create or update `CLAUDE.local.md` at the *project* root
-with this thin pointer (kept short on purpose — conventions live in the
-skill, not duplicated per project):
+In private mode, create or update the current tool's local instruction file at
+the *project* root: `CLAUDE.local.md` for Claude Code or an ignored
+`AGENTS.override.md` for Codex. Use this thin pointer (kept short on purpose —
+conventions live in the skill, not duplicated per project):
 
 ```markdown
 # Local Agent Instructions
 
 This project uses the `private-notes` skill for personal working notes
-under `.private/`. See `~/.claude/skills/private-notes/SKILL.md` for the
+under `.private/`. See `~/.agents/skills/private-notes/SKILL.md` for the
 full conventions (directory layout, YAML frontmatter, wiki-link rules,
 archive + INDEX hygiene, commit discipline).
 
@@ -317,7 +317,8 @@ After running the bootstrap flow, the project should have:
 - `.private/.git/` initialized as a separate repo (private mode + user
   opted in)
 - `.private/.gitignore` with `.DS_Store` and `._*` (private repo mode)
-- Project root `CLAUDE.local.md` with the thin pointer (private mode), or
-  a reference to this skill in `AGENTS.md` (in-repo mode)
+- The current tool's local instruction file with the thin pointer (private mode),
+  or a reference to this skill in the project's primary instruction file
+  (in-repo mode)
 
 Confirm each is in place before reporting bootstrap complete.

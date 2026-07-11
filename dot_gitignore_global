@@ -45,6 +45,7 @@ tmp/
 # variants and agent-tooling scratch dirs are ignored globally.
 CLAUDE.local.md
 AGENTS.local.md
+AGENTS.override.md
 .cursorrules.local
 
 # Claude Code scratch / per-checkout state

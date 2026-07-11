@@ -9,3 +9,5 @@ Durable, cross-device context and memory live in `~/.context/` — a private git
 repo synced across my machines, independent of any vendor account. Start with
 `~/.context/dashboard.md` for the table of contents, and record durable facts
 there rather than in tool-local memory.
+
+@~/.context/agent-instructions.md
