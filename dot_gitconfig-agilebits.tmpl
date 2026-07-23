@@ -2,3 +2,11 @@
 [user]
         name = {{ onepasswordRead "op://Private/Me/Internet Details/display name" }}
         email = {{ onepasswordRead "op://Private/Me/Internet Details/agilebits email" }}
+        {{- /* Key lives in "GitHub chris-born_1pw" (agilebits Employee vault); hardcoded so this renders on machines without that account */}}
+        signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMEVnGdyztOEb8/BTPs2ZXMP2Cu5NJJ+nTmCtGXCEhV8
+
+# Route agilebits-inc remotes through the github-agilebits SSH alias
+# so the chris-born_1pw key is used instead of the pelted one
+[url "git@github-agilebits:agilebits-inc/"]
+        insteadOf = git@github.com:agilebits-inc/
+        insteadOf = https://github.com/agilebits-inc/

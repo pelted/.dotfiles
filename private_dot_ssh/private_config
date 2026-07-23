@@ -1,3 +1,17 @@
+# GitHub as pelted (personal + Kolide org)
+Host github.com
+	IdentityFile ~/.ssh/github-pelted.pub
+	IdentitiesOnly yes
+	User git
+
+# GitHub as chris-born_1pw (agilebits-inc org)
+# Clone with: git clone git@github-agilebits:agilebits-inc/<repo>.git
+Host github-agilebits
+	HostName github.com
+	IdentityFile ~/.ssh/github-agilebits.pub
+	IdentitiesOnly yes
+	User git
+
 Host *
 	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 Host go.1password.io
