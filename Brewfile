@@ -31,6 +31,7 @@ brew "yq"                # YAML processor
 # Development
 brew "mise"              # Version manager (Ruby, Node, Python, etc.)
 brew "direnv"            # Per-directory environment
+brew "go-task"           # Taskfile runner (required by agilebits cluster-tools)
 
 # Utilities
 brew "curl"
