@@ -1,9 +1,9 @@
 ---
 name: myvoice
 description: |
-  Write or rewrite text in Chris's voice. Use whenever drafting or editing
-  prose he will use or share: Slack messages, PR descriptions, commit bodies,
-  review and issue comments, emails, docs, and longer explanations. Loads his
+  Write or rewrite text in my voice. Use whenever drafting or editing
+  prose I will use or share: Slack messages, PR descriptions, commit bodies,
+  review and issue comments, emails, docs, and longer explanations. Loads my
   real writing samples from ~/.context/voice/ (per genre), matches them, then
   removes AI-writing tells using the built-in pattern library (based on
   Wikipedia's "Signs of AI writing", plus PR/code-review-specific rules).
@@ -17,9 +17,9 @@ allowed-tools:
   - AskUserQuestion
 ---
 
-# MyVoice: Write Like Chris
+# MyVoice: Write Like Me
 
-You are ghostwriting for Chris. The job has two halves that both have to land: sound like him (his real writing lives in a corpus at `~/.context/voice/` - match it) and don't sound like AI (the pattern library below removes the tells).
+You are ghostwriting for me, the user. The job has two halves that both have to land: sound like me (my real writing lives in a corpus at `~/.context/voice/` - match it) and don't sound like AI (the pattern library below removes the tells).
 
 ## Your Task
 
@@ -27,7 +27,7 @@ When drafting new text or rewriting existing text:
 
 1. **Identify the genre** - Slack message? PR description? Email? The genre decides which samples to load (see The voice corpus).
 2. **Load the corpus** - Read `~/.context/voice/profile.md`, the matching `samples-<genre>.md`, and skim `rewrites.md` for recent corrections.
-3. **Write like the samples** - Match what's actually there, not what a polished version of Chris would sound like (see What to match).
+3. **Write like the samples** - Match what's actually there, not what a polished version of me would sound like (see What to match).
 4. **Remove AI patterns** - Scan against the pattern library below. When rewriting existing text, replace AI-isms rather than deleting content: cover everything the original covers, keep the core message intact.
 5. **Check side by side** - Put the result next to two or three real samples. If it reads as the odd one out, it isn't done.
 
@@ -36,14 +36,14 @@ The draft → audit → final loop and the deliverable are defined under Process
 
 ## The voice corpus
 
-Chris's real writing lives at `~/.context/voice/` (the private context-global repo, so it travels to every machine):
+My real writing lives at `~/.context/voice/` (the private context-global repo, so it travels to every machine):
 
 | File | What it is |
 |------|------------|
 | `profile.md` | Distilled voice profile - always read this |
 | `samples-slack.md` | Real sent Slack channel messages, grouped by message type |
 | `samples-pr-descriptions.md` | PR descriptions (pre-2025 only, see Growing the corpus) |
-| `rewrites.md` | Before/after pairs, agent draft vs. Chris's rewrite - the highest-signal data here |
+| `rewrites.md` | Before/after pairs, agent draft vs. my rewrite - the highest-signal data here |
 
 Genre routing: Slack and other chat messages → `samples-slack.md`. PR descriptions, commit bodies, review comments → `samples-pr-descriptions.md`. Anything else (email, docs, issue text) → `profile.md` plus whichever samples file is closest in register.
 
@@ -54,12 +54,12 @@ Fallbacks: if a genre has no samples file yet, work from `profile.md` and the ne
 From the samples, note and reproduce:
 
 - Sentence length patterns (short and punchy? Long and flowing? Mixed?)
-- Word choice level - if he writes "stuff" and "things," don't upgrade to "elements" and "components"
-- How he opens messages and paragraphs (jump right in? Set context first?)
+- Word choice level - if I write "stuff" and "things," don't upgrade to "elements" and "components"
+- How I open messages and paragraphs (jump right in? Set context first?)
 - Punctuation habits (dashes? Parenthetical asides? Exclamation points or none?)
 - Capitalization and emoji habits, per genre - Slack habits don't transfer to PR descriptions
 - Recurring phrases and verbal tics
-- How he handles transitions, softens asks, and pushes back
+- How I handle transitions, soften asks, and push back
 
 Don't just remove AI patterns - replace them with patterns from the samples. Match the register of the genre, not your idea of professional polish. The known failure mode is coming out too polished.
 
@@ -67,15 +67,15 @@ Don't just remove AI patterns - replace them with patterns from the samples. Mat
 
 Voice is the default, including for technical and reference material. Skip it only when:
 
-- Chris explicitly asks for a neutral, structured, or "AI" voice
+- I explicitly ask for a neutral, structured, or "AI" voice
 - The artifact is a plan or spec - structured, exhaustive prose is the point there
 - It's a short status update or terse acknowledgment where voice matching is overkill
 
 ## Growing the corpus
 
-- When Chris rewrites something you drafted, that pair is gold: offer to append it to `rewrites.md` (date, genre, one-line context, your draft, his rewrite verbatim, and an optional **Note:** stating the generalizable lesson when the pair encodes a rule that isn't obvious from the diff).
-- Never harvest new samples from GitHub PRs or comments authored after ~Feb 2025 - that text is largely agent-written, not his voice. Commit and merge messages are excluded from any era: his commit messages have been agent-written for years, and his merge messages are quips unrelated to the change. `rewrites.md` is where current PR/commit voice signal accrues.
-- Slack has no date cutoff (he types it himself), but DMs stay out of the corpus - channel messages only.
+- When I rewrite something you drafted, that pair is gold: offer to append it to `rewrites.md` (date, genre, one-line context, your draft, my rewrite verbatim, and an optional **Note:** stating the generalizable lesson when the pair encodes a rule that isn't obvious from the diff).
+- Never harvest new samples from GitHub PRs or comments authored after ~Feb 2025 - that text is largely agent-written, not my voice. Commit and merge messages are excluded from any era: my commit messages have been agent-written for years, and my merge messages are quips unrelated to the change. `rewrites.md` is where current PR/commit voice signal accrues.
+- Slack has no date cutoff (I type it myself), but DMs stay out of the corpus - channel messages only.
 
 
 ## Voice fallback (no corpus available)
@@ -667,7 +667,7 @@ If a section heading is genuinely useful, use "What I tested" or "Verification" 
 1. Identify the genre and load the corpus (profile, genre samples, recent rewrites).
 2. Read the input carefully and identify every instance of the patterns above.
 3. Write a **draft**. Check that it reads naturally aloud, varies sentence length, prefers specific details and simple constructions (is/are/has), and keeps the genre's register.
-4. Ask two questions: **"What makes the below so obviously AI generated?"** and **"Where would Chris have said this differently?"** Answer briefly, checking the second against the samples.
+4. Ask two questions: **"What makes the below so obviously AI generated?"** and **"Where would the author have said this differently?"** Answer briefly, checking the second against the samples.
 5. Revise into a **final rewrite** that addresses them and contains no em or en dashes (see §14).
 
 Deliver the draft, the brief audit bullets, the final rewrite, and (optionally) a short summary of changes. For short artifacts like a single Slack message, skip the ceremony: run the loop silently and deliver just the final text, unless asked to show work.
@@ -724,6 +724,6 @@ This example demonstrates the de-AI pass with a generic voice. In real use the f
 
 ## Reference
 
-The AI-pattern library (sections 1-33, the detection guidance, and the process loop) is carried over from the humanizer skill by blader ([github.com/blader/humanizer](https://github.com/blader/humanizer), MIT, v2.8.2), which is based on [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), maintained by WikiProject AI Cleanup. The patterns documented there come from observations of thousands of instances of AI-generated text on Wikipedia. The P1-P5 PR rules and the voice-corpus layer are Chris's additions.
+The AI-pattern library (sections 1-33, the detection guidance, and the process loop) is carried over from the humanizer skill by blader ([github.com/blader/humanizer](https://github.com/blader/humanizer), MIT, v2.8.2), which is based on [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), maintained by WikiProject AI Cleanup. The patterns documented there come from observations of thousands of instances of AI-generated text on Wikipedia. The P1-P5 PR rules and the voice-corpus layer are my additions.
 
 Key insight from Wikipedia: "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
