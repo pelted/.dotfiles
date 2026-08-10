@@ -584,11 +584,11 @@ When you see these, lean toward leaving the prose alone — they are evidence of
 
 These rules apply specifically when writing or rewriting pull request descriptions, PR comments, code review comments, or GitHub/GitLab issue comments. They are in addition to all the general patterns above.
 
-### P1. No "soak" or soak-coded validation jargon
+### P1. No "soak"-style validation or deployment jargon
 
-**Words to watch:** soak, bake, bake-in, marinate, let it cook, let it ride
+**Words to watch:** soak, bake, bake-in, marinate, let it cook, let it ride, merges dark, ships dark, dark launch
 
-**Problem:** "Soak" is wildly overused in AI-generated PR text to describe validation periods, canary windows, or staged rollouts. It sounds like AI corporate-speak and rarely tells the reader anything specific. Say what the validation actually is.
+**Problem:** "Soak" is wildly overused in AI-generated PR text to describe validation periods, canary windows, or staged rollouts. Same for "merges dark" and its cousins. It sounds like AI corporate-speak and rarely tells the reader anything specific — not everyone speaks tech or PM jargon, and this wording forces readers to decode what is actually meant. Say what the validation or rollout state actually is.
 
 **Before:**
 > Let's soak this in staging for a few days before rolling to prod.
@@ -601,6 +601,12 @@ These rules apply specifically when writing or rewriting pull request descriptio
 
 **After:**
 > Once it's been running for a week without alerts, we can ramp the flag.
+
+**Before:**
+> The important part up front: this merges completely dark.
+
+**After:**
+> Both switches default to off, so merging this changes nothing in production.
 
 ### P2. No customer or organization identifiers
 
