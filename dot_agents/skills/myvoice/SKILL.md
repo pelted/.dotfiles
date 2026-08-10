@@ -606,7 +606,9 @@ These rules apply specifically when writing or rewriting pull request descriptio
 > The important part up front: this merges completely dark.
 
 **After:**
-> Both switches default to off, so merging this changes nothing in production.
+> Both switches default to off, so the new code paths don't run until someone enables them.
+
+Be precise about what merging means: merged code ships to production. Don't claim a merge "changes nothing in production" — the honest claim is that the new code doesn't execute until the flags are turned on.
 
 ### P2. No customer or organization identifiers
 
