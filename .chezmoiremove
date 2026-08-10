@@ -1,1 +1,3 @@
 .config/agent-instructions.md
+.agents/skills/humanizer
+.claude/skills/humanizer
