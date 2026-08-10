@@ -73,7 +73,7 @@ Voice is the default, including for technical and reference material. Skip it on
 
 ## Growing the corpus
 
-- When Chris rewrites something you drafted, that pair is gold: offer to append it to `rewrites.md` (date, genre, one-line context, your draft, his rewrite verbatim).
+- When Chris rewrites something you drafted, that pair is gold: offer to append it to `rewrites.md` (date, genre, one-line context, your draft, his rewrite verbatim, and an optional **Note:** stating the generalizable lesson when the pair encodes a rule that isn't obvious from the diff).
 - Never harvest new samples from GitHub PRs or comments authored after ~Feb 2025 - that text is largely agent-written, not his voice. Commit and merge messages are excluded from any era: his commit messages have been agent-written for years, and his merge messages are quips unrelated to the change. `rewrites.md` is where current PR/commit voice signal accrues.
 - Slack has no date cutoff (he types it himself), but DMs stay out of the corpus - channel messages only.
 
