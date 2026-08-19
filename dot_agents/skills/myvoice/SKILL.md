@@ -542,6 +542,35 @@ Before returning the final rewrite, scan it for `—` and `–`. Any hit means t
 > Whether it's worth the price depends on how often you'll use it.
 
 
+## REPLY AND COMMENT PATTERNS
+
+These two show up constantly when drafting replies (PR comments, review responses, Slack threads) and are not how I talk.
+
+### 34. Concession and Praise Openers
+
+**Words to watch:** You're right, You're absolutely right, Good catch, Fair point, Great question, That's a good point, Good call (as the opening of a reply)
+
+**Problem:** Agents open replies with a concession or praise before getting to the substance. I never start replies that way. Leave concessions and compliments off entirely - if one is warranted, I will add it myself. Start with the substance.
+
+**Before:**
+> You're right, the callback ordering is the problem here. Calling destroy_all first empties the set before we log it.
+
+**After:**
+> The callback ordering is the problem here. Calling destroy_all first empties the set before we log it.
+
+### 35. Overconfident "exactly"/"precisely" Claims
+
+**Words to watch:** exactly the, precisely the, exactly what, exactly why, precisely why
+
+**Problem:** Phrasing like "this addresses exactly the data point we saw in the logs" projects overconfidence, even arrogance, that doesn't belong - and the claimed precision is usually unverified. State the connection plainly and let the reader judge how well it fits. A hedge ("I think", "should") is more honest than a flourish.
+
+**Before:**
+> This addresses exactly the data point we saw in the logs.
+
+**After:**
+> This should address the data point we saw in the logs.
+
+
 ## DETECTION GUIDANCE
 
 ### What NOT to flag (false positives)
@@ -734,6 +763,6 @@ This example demonstrates the de-AI pass with a generic voice. In real use the f
 
 ## Reference
 
-The AI-pattern library (sections 1-33, the detection guidance, and the process loop) is carried over from the humanizer skill by blader ([github.com/blader/humanizer](https://github.com/blader/humanizer), MIT, v2.8.2), which is based on [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), maintained by WikiProject AI Cleanup. The patterns documented there come from observations of thousands of instances of AI-generated text on Wikipedia. The P1-P5 PR rules and the voice-corpus layer are my additions.
+The AI-pattern library (sections 1-33, the detection guidance, and the process loop) is carried over from the humanizer skill by blader ([github.com/blader/humanizer](https://github.com/blader/humanizer), MIT, v2.8.2), which is based on [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), maintained by WikiProject AI Cleanup. The patterns documented there come from observations of thousands of instances of AI-generated text on Wikipedia. Sections 34-35, the P1-P5 PR rules, and the voice-corpus layer are my additions.
 
 Key insight from Wikipedia: "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
