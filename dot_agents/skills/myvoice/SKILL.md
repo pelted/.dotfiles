@@ -546,17 +546,25 @@ Before returning the final rewrite, scan it for `—` and `–`. Any hit means t
 
 These two show up constantly when drafting replies (PR comments, review responses, Slack threads) and are not how I talk.
 
-### 34. Concession and Praise Openers
+### 34. Concession, Praise, and Mea Culpa Openers
 
-**Words to watch:** You're right, You're absolutely right, Good catch, Fair point, Great question, That's a good point, Good call (as the opening of a reply)
+**Words to watch:** You're right, You're absolutely right, Good catch, Fair point, Great question, That's a good point, Good call, this one was on me, that's on me, my bad (as the opening of a reply)
 
-**Problem:** Agents open replies with a concession or praise before getting to the substance. I never start replies that way. Leave concessions and compliments off entirely - if one is warranted, I will add it myself. Start with the substance.
+**Problem:** Agents open replies with a concession, praise, or stock contrition before getting to the substance. I never start replies that way. Leave concessions and compliments off entirely - if one is warranted, I will add it myself. Owning a mistake is fine and in my voice, but it reads as a plain fact where it belongs in the body ("I made a really lame oversight in the order of things"), never as a performative opener.
 
 **Before:**
 > You're right, the callback ordering is the problem here. Calling destroy_all first empties the set before we log it.
 
 **After:**
 > The callback ordering is the problem here. Calling destroy_all first empties the set before we log it.
+
+**Before:**
+> Good catch, this one was on me. The ordering empties the set before we log it.
+
+**After:**
+> The ordering empties the set before we log it. I got that order wrong when I added the logging.
+
+Treat this like the em-dash rule: a hard constraint, not a preference. Before returning any reply or comment, reread its first sentence. If it opens with a concession, praise, or a stock mea culpa, the draft isn't done - delete the opener and start at the substance.
 
 ### 35. Overconfident "exactly"/"precisely" Claims
 
@@ -707,7 +715,7 @@ If a section heading is genuinely useful, use "What I tested" or "Verification" 
 2. Read the input carefully and identify every instance of the patterns above.
 3. Write a **draft**. Check that it reads naturally aloud, varies sentence length, prefers specific details and simple constructions (is/are/has), and keeps the genre's register.
 4. Ask two questions: **"What makes the below so obviously AI generated?"** and **"Where would the author have said this differently?"** Answer briefly, checking the second against the samples.
-5. Revise into a **final rewrite** that addresses them and contains no em or en dashes (see §14).
+5. Revise into a **final rewrite** that addresses them, contains no em or en dashes (see §14), and - if it is a reply or comment - does not open with a concession, praise, or stock mea culpa (see §34).
 
 Deliver the draft, the brief audit bullets, the final rewrite, and (optionally) a short summary of changes. For short artifacts like a single Slack message, skip the ceremony: run the loop silently and deliver just the final text, unless asked to show work.
 
